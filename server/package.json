@@ -2,9 +2,12 @@
   "name": "server",
   "version": "1.0.0",
   "description": "",
-  "main": "nodemon index.js",
+  "main": "index.js",
   "scripts": {
-    "start": "nodemon index.js"
+    "start": "node index.js",
+    "build": "cd ../ && npm run build",
+    "install-client": "cd ../ && npm install",
+    "heroku-postbuild":"npm run install-client && npm run build"
   },
   "keywords": [],
   "author": "",

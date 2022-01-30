@@ -1,6 +1,7 @@
 import React,{useEffect, useState} from 'react';
 import { useHistory } from 'react-router-dom'
 import { isExpired, decodeToken } from "react-jwt";
+import "./dashboard.scss"
 import axios from 'axios';
 
 export default function Dashboard() {
@@ -51,8 +52,25 @@ export default function Dashboard() {
     }, [])
 
   return <div className="dashboard">
-      {Email}, {FirstName}, {LastName}, {Address}, {Phone}
+      <div className="d-flex flex-column">
+        <div className=""> 
+         Email : {Email}
+        </div>
+        <div className=""> 
+         FirstName : {FirstName}
+        </div>
+        <div className=""> 
+         LastName : {LastName}
+        </div>
+        <div className=""> 
+         Address : {Address}
+        </div>
+        <div className=""> 
+         Phone : {Phone}
+        </div>
+        <button onClick={Logout} className="btn btn-primary">Logout</button> 
+      </div>
 
-      <button onClick={Logout}>Logout</button>
+      
   </div>;
 }

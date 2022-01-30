@@ -72,9 +72,12 @@ export default function Home() {
             </div>
           </div>
           <button type="submit" class="btn btn-primary">
-          Submit
+          Login
           </button>
         </form>
+        <div className="m-2"> 
+          If you haven't registered yet, <a href='/register'>Register Now</a>
+        </div>
       </div>
     </div>
   );

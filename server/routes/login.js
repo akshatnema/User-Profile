@@ -9,8 +9,7 @@ router.post('/',async function(req, res){
           email: req.body.email,
           password: req.body.password
       })
-      console.log(user);
-    if(user.Password === req.body.password){
+    if(user && await bcrypt.compare(req.body.password, user.Password)){
         const token = jwt.sign({
             email: user.email
         }, 'secret1234')

@@ -13,7 +13,7 @@ router.post('/', async function(req, res){
          Address: req.body.address,
          Email: req.body.email,
          Phone: req.body.phone,
-         Password: req.body.password
+         Password: hash
      });
      res.json({status:"ok"});
    }

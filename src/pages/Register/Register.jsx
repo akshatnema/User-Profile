@@ -111,9 +111,12 @@ export default function Register() {
             </div>
           </div>
           <button type="submit" class="btn btn-primary">
-            Submit
+            Register
           </button>
         </form>
+        <div className="m-2"> 
+          If you have an account, <a href='/'>Login here</a>
+        </div>
       </div>
     </div>
   );
