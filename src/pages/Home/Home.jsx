@@ -24,8 +24,9 @@ export default function Home() {
     .then(response =>{
       user=response;
     })
+    console.log(user);
     if(user.data.status === 'success'){
-      localStorage.setItem('token', user.data.user);
+      localStorage.setItem('email', user.data.user);
       window.location.href='/dashboard'
     }else{
       alert('Login failed. Try again');

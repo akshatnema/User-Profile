@@ -6,9 +6,10 @@ const User = require('../models/user.model')
 router.get('/', async (req, res) => {
     const token = req.headers['x-access-token'];
      try{
-       const decoded = jwt.verify(token, 'secret1234')
-       const email= decoded.email;
-       const user = await User.findOne({ email: email});
+      // const decoded = await jwt.decode(token, {complete: true})
+      // console.log(decoded.payload);
+       const email=token;
+       const user = await User.findOne({ Email: email});
        res.send({status: 'ok', details: user});
      }
      catch(err){

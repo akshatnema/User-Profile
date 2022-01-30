@@ -6,14 +6,13 @@ const User = require('../models/user.model')
 
 router.post('/',async function(req, res){
     const user = await User.findOne({
-          email: req.body.email,
-          password: req.body.password
-      })
+          Email: req.body.email
+      })  
     if(user && await bcrypt.compare(req.body.password, user.Password)){
         const token = jwt.sign({
-            email: user.email
+            Email: user.email
         }, 'secret1234')
-        res.json({status: 'success', user:token})
+        res.json({status: 'success', user:user.Email})
     }else{
         res.json({status: 'error', user:false})
     }  

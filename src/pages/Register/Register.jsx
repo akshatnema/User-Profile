@@ -17,6 +17,10 @@ export default function Register() {
       alert("Please enter a password of minimum length 8");
       return ;
     }
+    if(Phone.length!==10){
+      alert("Please enter a valid phone number. Phone number must be of 10 digits.")
+      return ;
+    }
     await axios.post('http://localhost:8000/register/', {
       name:FirstName,
       last:LastName,
@@ -32,6 +36,9 @@ export default function Register() {
     if(data.status==='ok'){
       alert('Registered sucessfully')
       window.location.href='/'
+    }else{
+      alert('Duplicate data');
+      window.location.href='/register';
     }
   }
 

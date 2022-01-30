@@ -16,9 +16,10 @@ export default function Dashboard() {
        console.log('callData called');
        await axios.get('http://localhost:8000/user/',{
            headers:{
-               'x-access-token': localStorage.getItem('token')
+               'x-access-token': localStorage.getItem('email')
            }
        }).then(response => {
+           console.log(response.data)
           const {Firstname, Lastname, Phone, Address, Email} = response.data.details;
           setFirstName(Firstname);
           setLastName(Lastname);
@@ -35,15 +36,9 @@ export default function Dashboard() {
    }
 
     useEffect(() => {
-        const token =localStorage.getItem('token');
-        if(token){
-           const user= decodeToken(token);
-           if(!user){
-               localStorage.removeItem('token');
-               window.location.href('/');
-           }else{
-               callData();
-           }
+        const token =localStorage.getItem('email');
+        if(token.length){
+           callData();  
         }else{
             alert('Login first');
             window.location.href='/'
