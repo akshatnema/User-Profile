@@ -28,12 +28,13 @@ export default function Home() {
       localStorage.setItem('token', user.data.user);
       window.location.href='/dashboard'
     }else{
-      alert('Login failed');
-      window.location.href='/'
+      alert('Login failed. Try again');
+      //window.location.href='/'
     }
   }
 
-  return (
+  return (<div>
+    <h1 className="m-2">Hello Everyone👋 </h1>
     <div className="home">
       <div className="d-flex flex-column">
         <h1 className="">Sign In</h1>
@@ -79,6 +80,7 @@ export default function Home() {
           If you haven't registered yet, <a href='/register'>Register Now</a>
         </div>
       </div>
+    </div>
     </div>
   );
 }

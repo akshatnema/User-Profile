@@ -13,6 +13,10 @@ export default function Register() {
   async function handleSubmit(e){
     e.preventDefault();
     let data;
+    if(Password.length<=7){
+      alert("Please enter a password of minimum length 8");
+      return ;
+    }
     await axios.post('http://localhost:8000/register/', {
       name:FirstName,
       last:LastName,
@@ -22,7 +26,6 @@ export default function Register() {
       password: Password
     })
     .then(response => {
-      console.log(response)
       data = response.data;
     } )
 

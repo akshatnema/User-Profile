@@ -19,7 +19,6 @@ export default function Dashboard() {
                'x-access-token': localStorage.getItem('token')
            }
        }).then(response => {
-           console.log(response);
           const {Firstname, Lastname, Phone, Address, Email} = response.data.details;
           setFirstName(Firstname);
           setLastName(Lastname);
@@ -53,19 +52,20 @@ export default function Dashboard() {
 
   return <div className="dashboard">
       <div className="d-flex flex-column">
-        <div className=""> 
+        <h1>User Profile</h1>  
+        <div className="m-1"> 
          Email : {Email}
         </div>
-        <div className=""> 
+        <div className="m-1"> 
          FirstName : {FirstName}
         </div>
-        <div className=""> 
+        <div className="m-1"> 
          LastName : {LastName}
         </div>
-        <div className=""> 
+        <div className="m-1"> 
          Address : {Address}
         </div>
-        <div className=""> 
+        <div className="m-1"> 
          Phone : {Phone}
         </div>
         <button onClick={Logout} className="btn btn-primary">Logout</button> 
